@@ -49,3 +49,9 @@ test: ## run tests
 		-w "/go/src/$(PKG)"                    	\
 		-u $(shell id -u):$(shell id -g)   		\
 		$(IMAGE):go-$(TAG) go test -v ./...
+
+.PHONY: dep-ensure
+dep-ensure: ## Update and vendo go dependencies.
+	GO111MODULE=on go mod tidy -v
+	find vendor -name '*_test.go' -delete
+	GO111MODULE=on go mod vendor
