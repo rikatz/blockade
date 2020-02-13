@@ -23,9 +23,9 @@ package modsecurity
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "modsecurity/rules.h"
+#include "modsecurity/rules_set.h"
 
-int msc_rules_add_file_bridge(Rules *rules, const char *file, char *error) {
+int msc_rules_add_file_bridge(RulesSet *rules, const char *file, char *error) {
 	const char *err = NULL;
 	int ret;
 
@@ -35,7 +35,7 @@ int msc_rules_add_file_bridge(Rules *rules, const char *file, char *error) {
     return ret;
 }
 
-int msc_rules_add_bridge(Rules *rules, const char *plain_rules, char *error) {
+int msc_rules_add_bridge(RulesSet *rules, const char *plain_rules, char *error) {
 	const char *err = NULL;
 	int ret;
 
